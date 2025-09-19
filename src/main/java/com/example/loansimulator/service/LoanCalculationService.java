@@ -47,7 +47,7 @@ public class LoanCalculationService {
 
     private double determineInterestRate(LoanRequest request) {
         // Si le taux est fourni manuellement (interface client), l'utiliser
-        if (request.getAnnualInterestRate() != null && request.getAnnualInterestRate() > 0) {
+        if (request.getAnnualInterestRate() != null && request.getAnnualInterestRate() >= 0) {
             logger.info("Using manual interest rate: {}%", request.getAnnualInterestRate());
             return request.getAnnualInterestRate();
         }
