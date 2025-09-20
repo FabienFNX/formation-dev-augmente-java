@@ -138,3 +138,9 @@ Il doit pouvoir saisir une nouvelle simulation de crédit immobilier avec les é
 Lorsqu'il clique sur calculer le taux va être déterminé à partir des informations obtenues depuis l'API REST qui est disponible dans le projet *interest-rate-api* et dont la description est disponible ici : http://localhost:8081/swagger-ui.html
 
 L'exercice est ici d'implémenter la logique présente dans le backend et d'appeler l'API REST interest-rate-api quand nécessaire
+
+## Hands-on #3
+
+Réalisez les tests unitaires associés au backend Java en dépassant 80% de couverture de tests.
+
+Utilisez les instructions/rules pour rédiger ces tests
