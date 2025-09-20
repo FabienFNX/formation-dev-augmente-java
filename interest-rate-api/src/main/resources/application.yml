@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: interest-rate-api
+
+# Configuration des taux d'intérêt
+interest-rate:
+  base-rate: 1.5  # Taux de base en pourcentage
+  income-thresholds:
+    low: 2000.0           # Seuil bas de revenu
+    medium: 4000.0        # Seuil moyen de revenu
+    high: 8000.0          # Seuil haut de revenu
+    low-modifier: 0.3     # Modificateur pour revenu < 2000€
+    medium-modifier: 0.0  # Modificateur pour revenu 2000-4000€
+    high-modifier: -0.1   # Modificateur pour revenu 4000-8000€
+    very-high-modifier: -0.2  # Modificateur pour revenu > 8000€
+
+# Configuration de la documentation OpenAPI/Swagger
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+# Configuration des logs
+logging:
+  level:
+    com.example.interestrateapi: DEBUG
+    org.springframework.web: INFO

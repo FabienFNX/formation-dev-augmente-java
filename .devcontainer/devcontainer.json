@@ -1,0 +1,60 @@
+{
+  "name": "Loan Simulator & Interest Rate API",
+  "image": "mcr.microsoft.com/devcontainers/java:21-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": "true"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-spring-boot-dashboard",
+        "Pivotal.vscode-spring-boot",
+        "redhat.vscode-yaml",
+        "ms-vscode.rest-client",
+        "rangav.vscode-thunder-client"
+      ],
+      "settings": {
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-21",
+            "path": "/usr/local/sdkman/candidates/java/current"
+          }
+        ],
+        "java.compile.nullAnalysis.mode": "automatic",
+        "spring-boot.ls.problem.application-properties.unknown-property": "ignore"
+      }
+    }
+  },
+
+  "forwardPorts": [8080, 8081],
+  "portsAttributes": {
+    "8080": {
+      "label": "Loan Simulator",
+      "onAutoForward": "notify"
+    },
+    "8081": {
+      "label": "Interest Rate API",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/start-services.sh",
+
+  "remoteUser": "vscode",
+  
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  
+  "mounts": [
+    "source=${localWorkspaceFolder}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached"
+  ]
+}
